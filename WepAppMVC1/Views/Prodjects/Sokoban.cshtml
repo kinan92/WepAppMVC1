@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Sokoban";
+}
+
+<h2>Sokoban</h2>
+
+
+    <div class="container" onkeydown="TheKey(event)">
+        <div class="row">
+            <div class="col-sm-4">
+              
+                <h1 hidden id="hid">Wahowwww you are the winner</h1>
+                <button id="restart">Start the game/restart</button>
+                <button id="randomMap">Random Map </button>
+            </div>
+            <div class="col-sm-8">
+                <div id="mapHeere" class="TheMap">
+
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="~/Scripts/settings.js"></script>
+<script src="~/Scripts/sokoban.js"></script>
+

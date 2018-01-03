@@ -1,0 +1,12 @@
+﻿@model WepAppMVC1.Models.Person
+@{
+    ViewBag.Title = "About";   
+}
+
+<h2 style="text-align:center;" >CV</h2>
+
+<p>Name: @Model.Name</p>  
+<p>Age:  @Model.Age</p> 
+<p style="text-align:center;">
+    <embed src="~/Content/doc/CV KINAN.pdf" width="1000" height="700" type='application/pdf'>
+</p>

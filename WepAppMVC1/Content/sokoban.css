@@ -1,0 +1,62 @@
+
+.TheMap
+    {
+     background-color: green;
+     width: 684px;
+     height: 576px;
+	 font-size: 1px;
+    }
+.Space {
+    display: inline-block;
+    background-image: url('Sokoban/io.gif');
+    width: 36px;
+    height: 36px;
+}
+.Wall {
+    display: inline-block;
+    background-image: url('Sokoban/wall.gif');
+    width: 36px;
+    height: 36px;
+}
+.Goal {
+    display: inline-block;
+    background-image: url('Sokoban/goal.gif');
+    width: 36px;
+    height: 36px;
+}
+.Block {
+    display: inline-block;
+    background-image: url('Sokoban/box.gif');
+    width: 36px;
+    height: 36px;
+}
+
+.redBlock {
+    display: inline-block;
+    background-image: url('Sokoban/goal.gif');
+    width: 36px;
+    height: 36px;
+}
+
+.forest {
+    display: inline-block;
+    background-image: url('Sokoban/box.gif');
+    width: 36px;
+    height: 36px;
+}
+.player {
+    display: inline-block;
+    background-image: url('Sokoban/player.gif');
+    width: 36px;
+    height: 36px;
+}
+.Goal.Block {
+    display: inline-block;
+    background-image: url('Sokoban/finishbox.gif');
+    width: 36px;
+    height: 36px;
+}
+#hid
+{   
+		text-align: center;
+}
