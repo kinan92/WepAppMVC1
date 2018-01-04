@@ -1,0 +1,31 @@
+﻿@model WepAppMVC1.Models.FeverCheck
+
+
+
+@{
+    ViewBag.Title = "Celsius";
+    ViewBag.Title = "Fahrenheit";
+}
+
+<h2>Celsius</h2>
+
+
+@if (ViewBag.FeverCheck !=null)
+{
+ <h3>@ViewBag.FeverCheck.Text</h3>
+
+}
+
+
+
+
+<form 
+     action="@Url.Action("Celsius","Home")" method="post">
+    <input type="number" name="FeverCelsius" value="37"  placeholder="What is your temperature" readonly/><br>
+    <input type="radio" name="scale" value="Celsius" checked> Celsius
+    <input type="radio" name="scale" value="Fahrenheit"> Fahrenheit<br>
+    <input type="submit" value="Check" />
+ 
+</form>
+
+
