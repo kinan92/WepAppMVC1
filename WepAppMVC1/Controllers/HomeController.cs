@@ -34,14 +34,19 @@ namespace WepAppMVC1.Controllers
         }
 
         [HttpPost]// reagerar enbart på post
-        public ActionResult Celsius(double FeverCelsius, string scale)
+        public ActionResult Celsius(double FeverCelsius, string scale  )
         {
+            
+           ViewBag.FeverCheck = 0;
+
             if (scale == "Fahrenheit")
             {
                 FeverCelsius = FeverCelsius / 2.664864864864865;
             }
+            
             FeverCheck fever = new FeverCheck(FeverCelsius);
             ViewBag.FeverCheck = fever;
+            
             return View();
         }
 
