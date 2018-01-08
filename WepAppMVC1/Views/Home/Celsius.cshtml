@@ -21,9 +21,9 @@
 
 <form 
      action="@Url.Action("Celsius","Home")" method="post" oninput="x.value=parseInt(FeverCelsius.value)">
-    <input type="range" name="FeverCelsius" value="50"   placeholder="What is your temperature" />
+    <input type="range" name="FeverCelsius" value="37"   placeholder="What is your temperature" />
     (
-    <output name="x" for="FeverCelsius" >50</output>°)<br>
+    <output name="x" for="FeverCelsius" >37</output>°)<br>
     <input type="radio" name="scale" value="Celsius" checked> Celsius
     <input type="radio" name="scale" value="Fahrenheit"> Fahrenheit<br>
     <input type="submit" value="Check" />
