@@ -1,0 +1,63 @@
+﻿
+@model WepAppMVC1.Models.GuessGame
+@{
+    ViewBag.Title = "GuessingGame";
+}
+
+<div class="container pull-right">
+    <h3> <span class="label label-primary">guessList</span></h3>
+    @if (HttpContext.Current.Request.HttpMethod == "POST")
+    {
+        <table>
+            @for (int i =0; i < ViewBag.guessList.Count; i++)
+            {
+                <tr>
+                    <td>Guess @(i + 1): </td>
+                    <td>@ViewBag.guessList[i]</td>
+
+                </tr>
+             
+            }
+        </table>
+    }
+</div>
+
+<h2>GussingGame</h2>
+<br />
+<h4>Enter a number between 1 and 100</h4>
+
+@if (HttpContext.Current.Request.HttpMethod == "POST")
+{
+    <h3>@Model.Text</h3>
+    <p>@Model.Score</p>
+}
+
+
+@using (Html.BeginForm("GuessingGame", "Home", FormMethod.Post))
+{
+    @Html.TextBoxFor(model => model.Num, new { placeholder = "0", @type = "number" });
+    <input type="submit" value="Guess" class="btn btn-default">
+
+}
+
+@using (Html.BeginForm("GuessingGame", "Home", FormMethod.Get))
+{
+   
+    <input type="submit" value="restart" class="btn btn-default">
+
+}
+@Session["Answer"]
+
+<p>
+    <h1> Your history</h1>
+    @foreach (var item in (List<WepAppMVC1.Models.GuessingGameHistory>)Session["History"])
+    {
+        if (item.Display == true)
+        {
+            var id=0;
+            <h4>@(id++) @item.Number : You tried @item.Tried times</h4>
+              
+            
+        }
+    }
+</p>

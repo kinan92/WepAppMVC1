@@ -13,16 +13,25 @@ namespace WepAppMVC1
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
+            name: "PeopleReviews",
+            url: "PeopleReviews",
+            defaults: new { controller = "PeopleReviews", action = "Index" }
+          );
+
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
             name: "Celsius",
             url: "Celsius",
             defaults: new { controller = "Home", action = "Celsius" }
           );
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
             name: "About",
             url: "About",
             defaults: new { controller = "Home", action = "About" }
           );
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
             name: "Contact",
@@ -37,6 +46,14 @@ namespace WepAppMVC1
             url: "Sokoban",
             defaults: new { controller = "Prodjects", action = "Sokoban" }
           );
+
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+            name: "GussingGame",
+            url: "GussingGame",
+            defaults: new { controller = "Home", action = "GussingGame" }
+          );
+
             routes.MapRoute(
             name: "Default",
             url: "{controller}/{action}/{id}",

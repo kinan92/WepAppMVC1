@@ -27,10 +27,11 @@ namespace WepAppMVC1.Models
             {
                 Text = "You have Hypothermia";
             }
-            else
+            else if (FeverCelsius == 37)
             {
                 Text = "Your temperature is normal have a nice day";
             }
+         
         }
     }
 }
