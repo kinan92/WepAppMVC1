@@ -155,6 +155,8 @@
     </Content>
     <Content Include="Views\PeopleReviews\Index.cshtml" />
     <Content Include="Views\PeopleReviews\Edit.cshtml" />
+    <Content Include="Views\PeopleReviews\Create.cshtml" />
+    <Content Include="Views\PeopleReviews\Indexsss.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

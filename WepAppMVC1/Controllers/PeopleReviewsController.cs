@@ -12,46 +12,57 @@ namespace WepAppMVC1.Controllers
         // GET: PeopleReviews
         public ActionResult Index()
         {
-            var model =
-               from r in people
-               orderby r.Cities
-               select r;
-            return View(model);
-        }
+            List<People> peopleList;                                                                              //reference for list type generic or object                                                 
+      
+            if (Session["Add"] != null)
+            {
+                peopleList = (List<People>)Session["Add"];                                  // casting session as list type the assign it to object of list same type  
+            }
+            else
+            {
+                peopleList = People.people;
+            }
 
-        // GET: PeopleReviews/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
+
+            var model =
+         from r in peopleList
+         orderby r.Id
+         select r;
+      return View(model);
         }
 
         // GET: PeopleReviews/Create
         public ActionResult Create()
         {
-            return View();
+
+            return View(new People());
         }
 
         // POST: PeopleReviews/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create( string Name, int PhoneNumbers, string Cities)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            List<People> peopleList;                                                                             //reference for list type generic or object                                                 
 
-                return RedirectToAction("Index");
-            }
-            catch
+            if (Session["Add"] != null)
             {
-                return View();
+                peopleList = (List<People>)Session["Add"];                                  // casting session as list type the assign it to object of list same type  
+            }       
+            else     //is null
+            {
+                peopleList = People.people;
             }
+            peopleList.Add(new People() { Name = Name, PhoneNumbers = PhoneNumbers, Cities = Cities});
+            Session["Names"] = peopleList;
+            return RedirectToAction("Index");
+
         }
 
         // GET: PeopleReviews/Edit/5
         public ActionResult Edit(int id)
         {
             
-             var review = _review.Single(r => r.Id == id);
+            var review = People.people.Single(r => r.Id == id);
             return View(review);
         }
 
@@ -59,16 +70,13 @@ namespace WepAppMVC1.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            try
+            var review = People.people.Single(r => r.Id == id);
+            if(TryUpdateModel(review))
             {
-                // TODO: Add update logic here
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(review);
         }
 
         // GET: PeopleReviews/Delete/5
@@ -94,44 +102,6 @@ namespace WepAppMVC1.Controllers
         }
 
 
-        static List<People> people = new List<People>
-        {
-            new People
-            {
-                Id=1,
-                Name="Kinan",
-                PhoneNumbers=11,
-                Cities="Damas",
-            },
-            new People
-            {
-                Id=2,
-                Name="b",
-                PhoneNumbers=22,
-                Cities="B",
-            },
-            new People
-            {
-                Id=3,
-                Name="c",
-                PhoneNumbers=33,
-                Cities="C",
-            },
-            new People
-            {
-                Id=4,
-                Name="d",
-                PhoneNumbers=44,
-                Cities="D",
-            },
-            new People
-            {
-                Id=5,
-                Name="e",
-                PhoneNumbers=55,
-                Cities="E",
-            }
-        };
 
 
     }
