@@ -11,7 +11,6 @@ namespace WepAppMVC1.Models
         public string Text { get; set; }
         public int Answer { get; set; }
         public int Id { get; set; }
-        public int Score { get; set; }
         public string FinalScore { get; set; }
 
         public void Compare()

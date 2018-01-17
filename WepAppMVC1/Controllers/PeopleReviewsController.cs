@@ -10,7 +10,7 @@ namespace WepAppMVC1.Controllers
     public class PeopleReviewsController : Controller
     {
         // GET: PeopleReviews
-        public ActionResult Index()
+        public ActionResult Index(string searchBy ,string search)
         {
             List<People> peopleList;                                                                              //reference for list type generic or object                                                 
       
@@ -22,13 +22,23 @@ namespace WepAppMVC1.Controllers
             {
                 peopleList = People.people;
             }
-
-
             var model =
-         from r in peopleList
-         orderby r.Id
-         select r;
-      return View(model);
+            from r in peopleList
+            orderby r.Id
+            select r; 
+
+            if(searchBy=="City" )
+            {
+              
+                return View(peopleList.Where( r => r.City.ToLower().Contains (search.ToLower()) || search==null).ToList());
+            }
+            else if(searchBy=="Name")
+            {
+                return View(peopleList.Where(r => r.Name.ToLower().Contains (search.ToLower()) || search == null).ToList());
+            }
+
+            return View(model);
+
         }
 
         // GET: PeopleReviews/Create
@@ -40,7 +50,7 @@ namespace WepAppMVC1.Controllers
 
         // POST: PeopleReviews/Create
         [HttpPost]
-        public ActionResult Create( string Name, int PhoneNumbers, string Cities)
+        public ActionResult Create( string Name, int PhoneNumbers, string City)
         {
             List<People> peopleList;                                                                             //reference for list type generic or object                                                 
 
@@ -52,7 +62,7 @@ namespace WepAppMVC1.Controllers
             {
                 peopleList = People.people;
             }
-            peopleList.Add(new People() { Name = Name, PhoneNumbers = PhoneNumbers, Cities = Cities});
+            peopleList.Add(new People() { Name = Name, PhoneNumbers = PhoneNumbers, City = City});
             Session["Names"] = peopleList;
             return RedirectToAction("Index");
 
@@ -82,27 +92,26 @@ namespace WepAppMVC1.Controllers
         // GET: PeopleReviews/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var review = People.people.Single(r => r.Id == id);
+            if(review == null)
+            {
+                return HttpNotFound ();
+            }
+            return View(review);
         }
 
         // POST: PeopleReviews/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+        
+             var review = People.people.Find(r => r.Id == id);
+            People.people.Remove(review);
+            return RedirectToAction("Index");
         }
 
 
-
+        
 
     }
 }

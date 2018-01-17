@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-    
+
 }
 
 
@@ -18,58 +18,60 @@ We are shoing the latest @Model.Count() reviews <br />
 </div>
 
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumbers)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cities)
-        </th>
-        <th></th>
-    </tr>
+ <tr>
 
-@foreach (var item in Model)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumbers)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cities)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-    
- @*@<div class="review">
-     <h4>@item.Id</h4>
-     <h4>@item.Name</h4>
-     <span>@item.PhoneNumbers</span>
-     <p>@item.Cities</p>
-     <span>@Html.ActionLink("Edit", "Edit", new { id = item.Id }) </span>
+     <th>
+         @Html.DisplayNameFor(model => model.Name)
+     </th>
+     <th>
+         @Html.DisplayNameFor(model => model.PhoneNumbers)
+     </th>
+     <th>
+         @Html.DisplayNameFor(model => model.City)
+     </th>
+     <th></th>
+ </tr>
+ @if (Model.Count() == 0)
+ {
+     <tr>
+         <td colspan="4">No names or City on the search  </td>
+     </tr>
+ }
+ else
+ {
+     foreach (var item in Model)
+     {
+         <tr>
 
- </div> *@
+             <td>
+                 @Html.DisplayFor(modelItem => item.Name)
+             </td>
+             <td>
+                 @Html.DisplayFor(modelItem => item.PhoneNumbers)
+             </td>
+             <td>
+                 @Html.DisplayFor(modelItem => item.City)
+             </td>
+             <td>
+                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+             </td>
+         </tr>
 
 
-}
+     }
+ }
 </table>
 
-
+@using (Html.BeginForm("Index", "PeopleReviews", FormMethod.Get))
+{
+    <b>Search By:</b>
+    @Html.RadioButton("searchBy", "Name", true) <text>Name</text>
+    @Html.RadioButton("searchBy", "City", true) <text>City</text>
+    <br />
+    @Html.TextBox("search")<input type="submit" value="Search" />
+}
 
 
 <br />
-    @VirtualPath
+@VirtualPath

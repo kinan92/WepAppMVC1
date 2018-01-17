@@ -29,7 +29,6 @@
 @if (HttpContext.Current.Request.HttpMethod == "POST")
 {
     <h3>@Model.Text</h3>
-    <p>@Model.Score</p>
 }
 
 
@@ -46,18 +45,20 @@
     <input type="submit" value="restart" class="btn btn-default">
 
 }
+
 @Session["Answer"]
 
 <p>
     <h1> Your history</h1>
-    @foreach (var item in (List<WepAppMVC1.Models.GuessingGameHistory>)Session["History"])
-    {
-        if (item.Display == true)
+    @{
+        int x = 1;
+        foreach (var item in (List<WepAppMVC1.Models.GuessingGameHistory>)Session["History"])
         {
-            var id=0;
-            <h4>@(id++) @item.Number : You tried @item.Tried times</h4>
-              
-            
+            if (item.Display == true)
+            {
+                <h4>@(x++) @item.Number : You tried @item.Tried times</h4>
+            }
         }
     }
+    
 </p>

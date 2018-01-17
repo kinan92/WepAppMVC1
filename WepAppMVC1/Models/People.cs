@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -11,8 +11,9 @@ namespace WepAppMVC1.Models
         static int idCount = 0;
         public int Id { get; set; }
         public string Name { get; set; }
+        [Display(Name = "Phone Numbers")]
         public int PhoneNumbers { get; set; }
-        public string Cities { get; set; }
+        public string City { get; set; }
 
         public People()
         {
@@ -27,31 +28,31 @@ namespace WepAppMVC1.Models
             {
                 Name="Kinan",
                 PhoneNumbers=11,
-                Cities="Damas",
+                City="Damas",
             },
             new People
             {
                 Name="b",
                 PhoneNumbers=22,
-                Cities="B",
+                City="B",
             },
             new People
             {
                 Name="c",
                 PhoneNumbers=33,
-                Cities="C",
+                City="C",
             },
             new People
             {
                 Name="d",
                 PhoneNumbers=44,
-                Cities="D",
+                City="D",
             },
             new People
             {
                 Name="e",
                 PhoneNumbers=55,
-                Cities="E",
+                City="E",
             }
 
            
