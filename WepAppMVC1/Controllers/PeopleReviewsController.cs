@@ -50,7 +50,7 @@ namespace WepAppMVC1.Controllers
 
         // POST: PeopleReviews/Create
         [HttpPost]
-        public ActionResult Create( string Name, int PhoneNumbers, string City)
+        public ActionResult Create( string Name, string PhoneNumbers, string City)
         {
             List<People> peopleList;                                                                             //reference for list type generic or object                                                 
 

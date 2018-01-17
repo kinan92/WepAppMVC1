@@ -11,10 +11,15 @@ namespace WepAppMVC1.Models
         static int idCount = 0;
         public int Id { get; set; }
         public string Name { get; set; }
-        [Display(Name = "Phone Numbers")]
-        public int PhoneNumbers { get; set; }
-        public string City { get; set; }
 
+        [Phone]
+        [Required]
+        [Display(Name = "Phone Numbers")]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumbers { get; set; }
+
+        public string City { get; set; }
+        
         public People()
         {
             Id = idCount++;
@@ -27,31 +32,31 @@ namespace WepAppMVC1.Models
             new People
             {
                 Name="Kinan",
-                PhoneNumbers=11,
+                PhoneNumbers="324",
                 City="Damas",
             },
             new People
             {
                 Name="b",
-                PhoneNumbers=22,
+                PhoneNumbers="22",
                 City="B",
             },
             new People
             {
                 Name="c",
-                PhoneNumbers=33,
+                PhoneNumbers="33",
                 City="C",
             },
             new People
             {
                 Name="d",
-                PhoneNumbers=44,
+                PhoneNumbers="44",
                 City="D",
             },
             new People
             {
                 Name="e",
-                PhoneNumbers=55,
+                PhoneNumbers="55",
                 City="E",
             }
 

@@ -22,9 +22,9 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" >
             @Html.LabelFor(model => model.PhoneNumbers, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-10" type="phone">
                 @Html.EditorFor(model => model.PhoneNumbers, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.PhoneNumbers, "", new { @class = "text-danger" })
             </div>
