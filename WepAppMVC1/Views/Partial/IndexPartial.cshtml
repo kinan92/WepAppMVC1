@@ -1,0 +1,10 @@
+﻿@using WepAppMVC1.Models
+<div>
+    @Html.ActionLink("Create New", "Create")
+</div>
+    <ol>
+@foreach (var item in People.people)
+            {
+        <li>@Html.Action("PartPerson", new { id = item.Id })</li>
+}
+    </ol>

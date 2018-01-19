@@ -17,7 +17,7 @@ namespace WepAppMVC1.Models
         [Display(Name = "Phone Numbers")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumbers { get; set; }
-
+        
         public string City { get; set; }
         
         public People()

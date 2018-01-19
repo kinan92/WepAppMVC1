@@ -113,9 +113,13 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\doc\CV KINAN.pdf" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.2.1.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\settings.js" />
     <Content Include="Scripts\sokoban.js" />
@@ -126,7 +130,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PartialController.cs" />
     <Compile Include="Controllers\PeopleReviewsController.cs" />
     <Compile Include="Controllers\ProdjectsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -148,7 +154,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Celsius.cshtml" />
     <Content Include="Views\Home\GuessingGame.cshtml">
       <BrowseToURL>~/Home/GuessingGame</BrowseToURL>
@@ -157,6 +162,11 @@
     <Content Include="Views\PeopleReviews\Edit.cshtml" />
     <Content Include="Views\PeopleReviews\Create.cshtml" />
     <Content Include="Views\PeopleReviews\Delete.cshtml" />
+    <Content Include="Views\Shared\_PartialPeople.cshtml" />
+    <Content Include="Views\Partial\IndexPartial.cshtml" />
+    <Content Include="Views\Ajax\AjaxIndex.cshtml" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

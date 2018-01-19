@@ -18,6 +18,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#"><img id="detail-icon-img" src="https://cdn3.iconfinder.com/data/icons/humano2/128x128/apps/redhat-web-browser.png" alt="browser, redhat, web icon" width="32" height="32"></a>
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
@@ -30,12 +33,15 @@
                     <li> @Html.ActionLink("celsius", "Celsius", "Home")</li>
                     <li> @Html.ActionLink("GuessingGame","GuessingGame", "Home")</li>
                     <li> @Html.ActionLink("PeopleReviews", "Index", "PeopleReviews")</li>
+                    <li> @Html.ActionLink("Partial People", "IndexPartial", "Partial")</li>
+                    <li> @Html.ActionLink("Ajax People", "AjaxIndex", "Ajax")</li>
+                    
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="container body-content">
+    <div class="container body-content" style="margin-top:61px">
         @RenderBody()
         <hr />
         <footer class="navbar navbar-inverse navbar-fixed-bottom">
@@ -51,7 +57,9 @@
         </footer>
     </div>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
 </body>
 </html>
