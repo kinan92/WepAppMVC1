@@ -1,0 +1,58 @@
+﻿@model WepAppMVC1.Models.People
+
+<div class="row" id="@( "People" + Model.Id  )">
+
+
+            @Ajax.BeginForm("AjaxCreatePeople", "Ajax", new { id= Model.Id },
+                         new AjaxOptions
+                         {
+                             InsertionMode = InsertionMode.InsertBefore,
+                             UpdateTargetId = $"People" + Model.Id,
+
+                         })
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(Item => Model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(Item => Model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(Item => Model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(Item => Model.PhoneNumbers, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10" type="phone">
+                    @Html.EditorFor(Item => Model.PhoneNumbers, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(Item => Model.PhoneNumbers, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(Item => Model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(Item => Model.City, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(Item => Model.City, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+
+
+        @*<div>
+            @Ajax.ActionLink("Back to List", "AjaxCanselPeople", new { id = Model.Id },
+                         new AjaxOptions
+                         {
+
+                             InsertionMode = InsertionMode.ReplaceWith,
+                             UpdateTargetId = $"People" + Model.Id
+
+                         }, new { @class = "btn btn-danger" })
+        </div>*@
+
+</div>
+
+

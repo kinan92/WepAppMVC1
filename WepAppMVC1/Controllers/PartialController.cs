@@ -20,5 +20,8 @@ namespace WepAppMVC1.Controllers
             People temp = People.people.SingleOrDefault(c => c.Id == id);
             return PartialView("_PartialPeople",temp);
         }
+    
+
+        
     }
 }
