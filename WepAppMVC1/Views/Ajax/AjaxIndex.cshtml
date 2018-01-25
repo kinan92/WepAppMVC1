@@ -4,29 +4,24 @@
     ViewBag.Title = "Index";
 }
 
-<h2> Ajax View Index</h2>
+<h2> Ajax View Index</h2>     @* load search partial   *@  
+<div class="row">
+    @Html.Partial("SearchPeople")
+</div>
 <div class="row">
 
     <div class="col-md-6" id="indexlist">
-        @foreach (var item in People.people)
+        @foreach (var item in People.people)        // to load the list 
         {
             @Html.Partial("_AjaxPerson", item)
         }
         <span id="BottomOfList"></span>
-
-
-
-<div class="col-md-6">
-    @Ajax.ActionLink("Create", "CreatePeople", new { People.people},
-                         new AjaxOptions
-                         {
-
-                             InsertionMode = InsertionMode.ReplaceWith,
-                             UpdateTargetId = $"People" + People.people
-
-                         }, new { @class = "btn btn-danger" })
-</div>
     </div>
 
+
+    <div class="col-md-6">
+        @Html.Action("CreatePeople", "Ajax")             @*Creat*@ 
+    </div>
+    
 </div>
-@*///////////////////////////////////////////////////////////////////////////////////////////////*@
+

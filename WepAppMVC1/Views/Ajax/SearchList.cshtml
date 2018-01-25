@@ -1,0 +1,7 @@
+﻿@model IEnumerable<WepAppMVC1.Models.People>
+
+@foreach (var item in Model)            //////Search list
+{
+    @Html.Partial("_AjaxPerson", item)
+}
+<span id="BottomOfList"></span>

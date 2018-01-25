@@ -44,28 +44,40 @@ namespace WepAppMVC1.Controllers
 
             return PartialView("_AjaxPerson", ToUpdate);
         }
-        public ActionResult CreatePeople (string Name, string PhoneNumbers, string City)
+
+        public ActionResult CreatePeople()
         {
-            //People ToUpdate = People.people.SelectMany(a => people.Name == people.Name, b => people.PhoneNumbers == people.PhoneNumbers ,c =>people.City==people.City);
-
-            //ToUpdate.Name = people.Name;
-            //ToUpdate.PhoneNumbers = people.PhoneNumbers;
-            List<People> peopleList = new List<People>();                                                                            //reference for list type generic or object
-
-            peopleList.Add(new People() { Name = Name, PhoneNumbers = PhoneNumbers, City = City });
-
-            return  View("AjaxCreatePeople");
+            return  PartialView("AjaxCreatePeople", new People());
         }
 
         [HttpPost]
         public ActionResult AjaxCreatePeople(string Name, string PhoneNumbers, string City)
         {
-            List<People> peopleList = new List<People>();                                                                            //reference for list type generic or object
-            
-            peopleList.Add(new People() { Name = Name, PhoneNumbers = PhoneNumbers, City = City });
-          
-            return PartialView("AjaxCreatePepole",peopleList);
+            People newPerson = new People() { Name = Name, PhoneNumbers = PhoneNumbers, City = City };
 
+            People.people.Add(newPerson);                                                                         
+          
+            return PartialView("_AjaxPerson", newPerson);
+        }
+        [HttpPost]
+        public ActionResult SearchPeople(string SearchBy , string SearchValue)
+        {
+
+            List<People> SearhList = People.people;    
+
+            if (SearchBy == "City")  //Search for City
+            {
+              SearhList=SearhList.Where(r => r.City.ToLower().Contains(SearchValue.ToLower()) || SearchValue == null).ToList();
+
+                return PartialView("SearchList", SearhList);
+            }
+            else if (SearchBy == "Name")    //Search for Name
+            {
+                SearhList=SearhList.Where(r => r.Name.ToLower().Contains(SearchValue.ToLower()) || SearchValue == null).ToList();
+
+                 return PartialView("SearchList", SearhList);
+            }
+            return PartialView("SearchList", SearhList);
         }
     }
 

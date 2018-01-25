@@ -1,11 +1,11 @@
 ﻿@model WepAppMVC1.Models.People
 
-<div class="row" id="@( "PeopleId" + Model.Id )">
-
+<div class="row" id="@( "PeopleId" + Model.Id )">                                           
+                                                                                                      
     <div class="col-md-6">
         <div class="row">
             <div class="col-md-4">
-                @Model.Name
+                @Model.Name                                                                          
             </div>
             <div class="col-md-4">
                 @Model.PhoneNumbers
@@ -17,7 +17,7 @@
     </div>
 
     <div class="col-md-6">
-        @Ajax.ActionLink("Remove", "AjaxRemovePerson", new { id = Model.Id },
+        @Ajax.ActionLink("Remove", "AjaxRemovePerson", new { id = Model.Id },       // The Remove btn Ajax ActionLink
                      new AjaxOptions
                      {
 
@@ -26,7 +26,7 @@
 
                      }, new { @class = "btn btn-danger" })
 
-        @Ajax.ActionLink("Edit", "AjaxEditPerson", new { id = Model.Id },
+        @Ajax.ActionLink("Edit", "AjaxEditPerson", new { id = Model.Id },     // The edit btn Ajax ActionLink
                      new AjaxOptions
                      {
 

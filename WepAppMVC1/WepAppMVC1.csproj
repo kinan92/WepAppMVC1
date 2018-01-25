@@ -145,7 +145,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
     <Compile Include="Controllers\PeopleReviewsController.cs" />
-    <Compile Include="Controllers\ProdjectsController.cs" />
+    <Compile Include="Models\ProdjectsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -181,6 +181,8 @@
     <Content Include="Views\Ajax\AjaxEditPerson.cshtml" />
     <Content Include="Views\Ajax\_AjaxPerson.cshtml" />
     <Content Include="Views\Ajax\AjaxCreatePeople.cshtml" />
+    <Content Include="Views\Ajax\SearchPeople.cshtml" />
+    <Content Include="Views\Ajax\SearchList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
